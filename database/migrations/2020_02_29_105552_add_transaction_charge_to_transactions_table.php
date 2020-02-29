@@ -14,7 +14,7 @@ class AddTransactionChargeToTransactionsTable extends Migration
     public function up()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->integer('transaction_charge')->default(0);
+            $table->integer('transaction_charge')->nullable();
         });
     }
 
