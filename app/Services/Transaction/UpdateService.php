@@ -27,7 +27,7 @@ class UpdateService
             $this->transaction->balanceAfter = $balance;
             $this->transaction->save();
 
-            (new \App\Services\CustomerDetails\UpdateService($this->customer, $this->formulateData($this->transaction)));
+            (new \App\Services\CustomerDetails\UpdateService($this->customer->customer_balance, $this->formulateData($this->transaction)))->run();
         });
     }
 

@@ -6,20 +6,20 @@ use Illuminate\Support\Arr;
 
 class UpdateService
 {
-    protected $customer;
+    protected $customer_balance;
     protected $data;
 
     const UPDATE_FIELDS = ['availableBalance', 'clearedBalance', 'unclearBalance', 'holdBalance', 'minimumBalance'];
 
-    public function __construct($customer, $data)
+    public function __construct($customer_balance, $data)
     {
-        $this->customer = $customer;
+        $this->customer_balance = $customer_balance;
         $this->data = $data;
     }
 
     public function run()
     {
-        return $this->updateModel($this->customer, self::UPDATE_FIELDS, $this->data);
+        return $this->updateModel($this->customer_balance, self::UPDATE_FIELDS, $this->data);
     }
 
     private function updateModel($model, $update_fields, $data)
